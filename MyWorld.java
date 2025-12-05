@@ -69,6 +69,8 @@ public class MyWorld extends World
         uPad.setLocation(70, 290);
         bPad.setLocation(810, 290);
         
+        playerScored = false;
+        botScored = false;
         isRunning = true;
     }
 
@@ -78,6 +80,7 @@ public class MyWorld extends World
         }
         if (playerScored || botScored) {
             resetGame(); // Resets game when someone scores
+            xChange = -5;
         }
         if (!isRunning) {
             return; // Exit act() immediately if game isn't running
@@ -97,8 +100,7 @@ public class MyWorld extends World
         showText(playerScoreString, 300, 50);
         showText(botScoreString, 600, 50);
         showText("LEVEL: "+String.valueOf(Scoreboard.level()),450,50);
-
-        // Range of constantly-changing values (get current locations in each act cycle)
+        
         int xPaddleUser = uPad.getX() + 10; 
         int yMinPaddleUserUpper = uPad.getY() - 50;
         int yMinPaddleUserLower = uPad.getY() + 50;
@@ -124,10 +126,10 @@ public class MyWorld extends World
         if ((gameBall.getX() + 28 >= xPaddleBot) && (gameBall.getY() >= yMinPaddleBotUpper && gameBall.getY() <= yMinPaddleBotLower)) {
             xChange = -5; // Change direction to move left
             if (Greenfoot.isKeyDown("down")) {
-                yChange = -2;
+                yChange = 2;
             }
             if (Greenfoot.isKeyDown("up")) {
-                yChange = 2;
+                yChange = -2;
             }
         }
         
@@ -150,11 +152,26 @@ public class MyWorld extends World
         if (gameBall.getY() + 28 > 600) {
             yChange = -2;
         }
+        
+        if ((fbomb.getX() - 28 <= xPaddleUser) && (fbomb.getY() >= yMinPaddleUserUpper && fbomb.getY() <= yMinPaddleUserLower)) {
+            Scoreboard.botScore++; 
+            removeObject(fbomb);
+            spawnBombs();
+        }
     
+        // Check collision with Bot Paddle (right side)
+        // Both X position MUST match AND Y position MUST be in range
+        if ((fbomb.getX() + 28 >= xPaddleBot) && (fbomb.getY() >= yMinPaddleBotUpper && fbomb.getY() <= yMinPaddleBotLower)) {
+            // explosion image replaces bomb
+            Scoreboard.playerScore++;
+            removeObject(fbomb);
+            spawnBombs();
+        }
+        
         // Move the ball horizontally
         gameBall.setLocation(gameBall.getX() + xChange, gameBall.getY() + yChange);
     }
-    
+ 
     // Remove or comment out the default started/stopped overrides which interfere with manual control
     // @Override
     // public void started() {
