@@ -15,5 +15,11 @@ public class spbutton extends Actor
     public void act()
     {
         // Add your action code here.
+        spbutton actor=new spbutton();
+        GreenfootImage spImage=getImage();
+        spImage.scale(450,300);
+        if(Greenfoot.mouseClicked(this)){
+            MyWorld.sptrue = true;
+        }
     }
 }

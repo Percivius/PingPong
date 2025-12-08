@@ -4,9 +4,41 @@ class.MyWorld.image=space1.jpg
 class.bomb.image=Adobe\ Express\ -\ file\ (2).png
 class.paddleBot.image=userPaddle.png
 class.paddleUser.image=userPaddle.png
+<<<<<<< HEAD
+=======
+class.spbutton.image=Single\ Player.png
+class.trophy.image=Untitled\ design\ (1).png
+>>>>>>> 3c9984ebc9178ef05ac2662ea184e49cddc6df9c
 dependency1.from=MyWorld
 dependency1.to=Ball
 dependency1.type=UsesDependency
+dependency10.from=spMovement
+dependency10.to=paddleUser
+dependency10.type=UsesDependency
+dependency11.from=spMovement
+dependency11.to=paddleBot
+dependency11.type=UsesDependency
+dependency12.from=spMovement
+dependency12.to=mpbutton
+dependency12.type=UsesDependency
+dependency13.from=spMovement
+dependency13.to=spbutton
+dependency13.type=UsesDependency
+dependency14.from=spMovement
+dependency14.to=trophy
+dependency14.type=UsesDependency
+dependency15.from=spMovement
+dependency15.to=Scoreboard
+dependency15.type=UsesDependency
+dependency16.from=mpbutton
+dependency16.to=MyWorld
+dependency16.type=UsesDependency
+dependency17.from=paddleBot
+dependency17.to=Ball
+dependency17.type=UsesDependency
+dependency18.from=spbutton
+dependency18.to=MyWorld
+dependency18.type=UsesDependency
 dependency2.from=MyWorld
 dependency2.to=paddleUser
 dependency2.type=UsesDependency
@@ -14,6 +46,7 @@ dependency3.from=MyWorld
 dependency3.to=paddleBot
 dependency3.type=UsesDependency
 dependency4.from=MyWorld
+<<<<<<< HEAD
 dependency4.to=bomb
 dependency4.type=UsesDependency
 dependency5.from=MyWorld
@@ -32,6 +65,32 @@ editor.fx.0.y=98
 height=28
 package.numDependencies=7
 package.numTargets=8
+=======
+dependency4.to=mpbutton
+dependency4.type=UsesDependency
+dependency5.from=MyWorld
+dependency5.to=spbutton
+dependency5.type=UsesDependency
+dependency6.from=MyWorld
+dependency6.to=trophy
+dependency6.type=UsesDependency
+dependency7.from=MyWorld
+dependency7.to=bomb
+dependency7.type=UsesDependency
+dependency8.from=MyWorld
+dependency8.to=Scoreboard
+dependency8.type=UsesDependency
+dependency9.from=spMovement
+dependency9.to=Ball
+dependency9.type=UsesDependency
+editor.fx.0.height=838
+editor.fx.0.width=820
+editor.fx.0.x=886
+editor.fx.0.y=186
+height=1048
+package.numDependencies=18
+package.numTargets=12
+>>>>>>> 3c9984ebc9178ef05ac2662ea184e49cddc6df9c
 project.charset=UTF-8
 publish.hasSource=false
 publish.locked=true
@@ -53,6 +112,30 @@ target1.type=ClassTarget
 target1.width=120
 target1.x=0
 target1.y=0
+<<<<<<< HEAD
+=======
+target10.height=70
+target10.name=spMovement
+target10.showInterface=false
+target10.type=ClassTarget
+target10.width=130
+target10.x=0
+target10.y=0
+target11.height=70
+target11.name=trophy
+target11.showInterface=false
+target11.type=ClassTarget
+target11.width=120
+target11.x=0
+target11.y=0
+target12.height=70
+target12.name=MyWorld
+target12.showInterface=false
+target12.type=ClassTarget
+target12.width=120
+target12.x=0
+target12.y=0
+>>>>>>> 3c9984ebc9178ef05ac2662ea184e49cddc6df9c
 target2.height=70
 target2.name=paddleUser
 target2.showInterface=false
@@ -61,7 +144,7 @@ target2.width=120
 target2.x=0
 target2.y=0
 target3.height=70
-target3.name=Scoreboard
+target3.name=mpbutton
 target3.showInterface=false
 target3.type=ClassTarget
 target3.width=120
@@ -89,19 +172,37 @@ target6.width=120
 target6.x=0
 target6.y=0
 target7.height=70
+<<<<<<< HEAD
 target7.name=PlayerMovement
+=======
+target7.name=spbutton
+>>>>>>> 3c9984ebc9178ef05ac2662ea184e49cddc6df9c
 target7.showInterface=false
 target7.type=ClassTarget
 target7.width=120
 target7.x=0
 target7.y=0
 target8.height=70
+<<<<<<< HEAD
 target8.name=MyWorld
+=======
+target8.name=PlayerMovement
+>>>>>>> 3c9984ebc9178ef05ac2662ea184e49cddc6df9c
 target8.showInterface=false
 target8.type=ClassTarget
 target8.width=120
 target8.x=0
 target8.y=0
+<<<<<<< HEAD
+=======
+target9.height=70
+target9.name=Scoreboard
+target9.showInterface=false
+target9.type=ClassTarget
+target9.width=120
+target9.x=0
+target9.y=0
+>>>>>>> 3c9984ebc9178ef05ac2662ea184e49cddc6df9c
 version=3.1.0
 width=160
 world.lastInstantiated=MyWorld

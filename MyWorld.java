@@ -12,6 +12,7 @@ public class MyWorld extends World
     private Ball gameBall;
     private paddleUser uPad;
     private paddleBot bPad;
+<<<<<<< HEAD
     private start startButton;
     private mpbutton multiButton;
     private spbutton singleButton;
@@ -28,8 +29,18 @@ public class MyWorld extends World
     public static boolean pressedMultiPlayer = false;
 
     // Scoreboard-related variables
+=======
+    private mpbutton multiButton;
+    private spbutton singleButton;
+    private trophy prize;
+    private int xChange = -5;
+    private int yChange = 0;
+    private boolean isRunning = false;
+    public static boolean mptrue = false;
+    public static boolean sptrue = false;
+>>>>>>> 3c9984ebc9178ef05ac2662ea184e49cddc6df9c
     private int playerScore = Scoreboard.playerScore; 
-    private int botScore = Scoreboard.botScore; 
+    private int botScore = Scoreboard.botScore;
 
     public MyWorld()
     {    
@@ -38,11 +49,15 @@ public class MyWorld extends World
         
         
         // Initial setup for the start screen
+<<<<<<< HEAD
         multiButton = new mpbutton();
         addObject(multiButton, 673, 290);
         singleButton = new spbutton();
         addObject(singleButton, 222, 290);
         prize = new trophy();
+=======
+        
+>>>>>>> 3c9984ebc9178ef05ac2662ea184e49cddc6df9c
     }
     
     /**
@@ -57,9 +72,13 @@ public class MyWorld extends World
     
     private void startGame() {
         isRunning = true;
+<<<<<<< HEAD
         Greenfoot.playSound("win.mp3");
         removeObject(startButton); // Remove the start button/text
         Greenfoot.playSound("backtrack.mp3");
+=======
+
+>>>>>>> 3c9984ebc9178ef05ac2662ea184e49cddc6df9c
         // Initialize and add objects (moved from the constructor)
         gameBall = new Ball();
         addObject(gameBall, 450, 290);
@@ -67,9 +86,18 @@ public class MyWorld extends World
         addObject(uPad, 70, 290);
         bPad = new paddleBot();
         addObject(bPad, 810, 290);
+<<<<<<< HEAD
     }
     
     private void spawnBombs() {
+=======
+        multiButton=new mpbutton();
+        addObject(multiButton,673,290);
+        singleButton=new spbutton();
+        addObject(singleButton,222,290);
+        prize=new trophy();
+
+>>>>>>> 3c9984ebc9178ef05ac2662ea184e49cddc6df9c
         // Randomly spawning in bombs
         fbomb = new bomb();
         int x = (int)(Math.random() * 581);
@@ -106,6 +134,7 @@ public class MyWorld extends World
         if (!isRunning) {
             return; // Exit act() immediately if game isn't running
         } 
+<<<<<<< HEAD
 
         if (Scoreboard.level() == 2) {
             spawnBombs();
@@ -117,6 +146,13 @@ public class MyWorld extends World
         if (fbomb.getX() - 28 < 0) { // Check both boundaries
             removeObject(fbomb);
             spawnBombs();
+=======
+        if(mptrue == true){
+            //call multi mode
+        }
+        else if(sptrue == true){
+            //call single
+>>>>>>> 3c9984ebc9178ef05ac2662ea184e49cddc6df9c
         }
         // Converting scores to strings and displaying
         // Converting scores to strings and displaying (can be updated here if scores change)
@@ -178,6 +214,7 @@ public class MyWorld extends World
         if (gameBall.getY() + 28 > 600) {
             yChange = -2;
         }
+<<<<<<< HEAD
         
         if ((fbomb.getX() - 28 <= xPaddleUser) && (fbomb.getY() >= yMinPaddleUserUpper && fbomb.getY() <= yMinPaddleUserLower)) {
             Scoreboard.botScore++; 
@@ -194,6 +231,12 @@ public class MyWorld extends World
             spawnBombs();
         }
         
+=======
+        if (Scoreboard.gameOver()==1){
+            showText("You won the Tournament!!!!",450,50);
+            addObject(prize,450,290);
+        }
+>>>>>>> 3c9984ebc9178ef05ac2662ea184e49cddc6df9c
         // Move the ball horizontally
         gameBall.setLocation(gameBall.getX() + xChange, gameBall.getY() + yChange);
     }
