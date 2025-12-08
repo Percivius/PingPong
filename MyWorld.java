@@ -8,18 +8,26 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class MyWorld extends World
 {
-    // Private vars here
+    // Private objects here
     private Ball gameBall;
     private paddleUser uPad;
     private paddleBot bPad;
     private start startButton;
+    private mpbutton multiButton;
+    private spbutton singleButton;
+    private trophy prize;
     private bomb fbomb;
+
+    // Private variables here
     private int xChange = -5;
     private int yChange = 0;
     private boolean isRunning = false;
     private boolean playerScored = false;
     private boolean botScored = false;
-    
+    public static boolean pressedSinglePlayer = false;
+    public static boolean pressedMultiPlayer = false;
+
+    // Scoreboard-related variables
     private int playerScore = Scoreboard.playerScore; 
     private int botScore = Scoreboard.botScore; 
 
@@ -30,9 +38,17 @@ public class MyWorld extends World
         
         
         // Initial setup for the start screen
+<<<<<<< HEAD
         startButton = new start();
         addObject(startButton, 450, 290);
         
+=======
+        multiButton = new mpbutton();
+        addObject(multiButton, 673, 290);
+        singleButton = new spbutton();
+        addObject(singleButton, 222, 290);
+        prize = new trophy();
+>>>>>>> 92f41b45d9f3e8fa82a57c860450e6c2ef7d5fc0
     }
     
     /**
@@ -57,7 +73,6 @@ public class MyWorld extends World
         addObject(uPad, 70, 290);
         bPad = new paddleBot();
         addObject(bPad, 810, 290);
-        spawnBombs();
     }
     
     private void spawnBombs() {
@@ -78,9 +93,18 @@ public class MyWorld extends World
     }
 
     public void act() {
-        if (!isRunning && Greenfoot.mouseClicked(startButton)) {
+        if (!isRunning && Greenfoot.mouseClicked(singleButton)) {
+            pressedSinglePlayer = true;
             startGame(); // Call the method to set up and start the game
+        } else if (!isRunning && Greenfoot.mouseClicked(multiButton)) {
+            pressedMultiPlayer = true;
+            startGame();
         }
+        if (Scoreboard.gameOver() == 1){
+            showText("You won the tournament! Congratulations!", 450, 50);
+            addObject(prize,450,290);
+        }
+        
         if (playerScored || botScored) {
             resetGame(); // Resets game when someone scores
             xChange = -5;
@@ -88,6 +112,10 @@ public class MyWorld extends World
         if (!isRunning) {
             return; // Exit act() immediately if game isn't running
         } 
+
+        if (Scoreboard.level() == 2) {
+            spawnBombs();
+        }
         if (fbomb.getX() + 28 > 900) {
             removeObject(fbomb);
             spawnBombs();
@@ -103,7 +131,8 @@ public class MyWorld extends World
         showText(playerScoreString, 300, 50);
         showText(botScoreString, 600, 50);
         showText("LEVEL: "+String.valueOf(Scoreboard.level()),450,50);
-        
+
+        // Note that ball movement stays the same across single and multiplayer mode. No need to transfer over to separate classes.
         int xPaddleUser = uPad.getX() + 10; 
         int yMinPaddleUserUpper = uPad.getY() - 50;
         int yMinPaddleUserLower = uPad.getY() + 50;
