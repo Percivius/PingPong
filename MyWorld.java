@@ -38,17 +38,11 @@ public class MyWorld extends World
         
         
         // Initial setup for the start screen
-<<<<<<< HEAD
-        startButton = new start();
-        addObject(startButton, 450, 290);
-        
-=======
         multiButton = new mpbutton();
         addObject(multiButton, 673, 290);
         singleButton = new spbutton();
         addObject(singleButton, 222, 290);
         prize = new trophy();
->>>>>>> 92f41b45d9f3e8fa82a57c860450e6c2ef7d5fc0
     }
     
     /**
