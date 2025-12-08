@@ -27,10 +27,12 @@ public class MyWorld extends World
     {    
         super(900, 580, 1);
         prepare(); // Sets up background, etc.
-
+        
+        
         // Initial setup for the start screen
         startButton = new start();
         addObject(startButton, 450, 290);
+        
     }
     
     /**
@@ -45,8 +47,9 @@ public class MyWorld extends World
     
     private void startGame() {
         isRunning = true;
+        Greenfoot.playSound("win.mp3");
         removeObject(startButton); // Remove the start button/text
-
+        Greenfoot.playSound("backtrack.mp3");
         // Initialize and add objects (moved from the constructor)
         gameBall = new Ball();
         addObject(gameBall, 450, 290);
@@ -61,7 +64,7 @@ public class MyWorld extends World
         // Randomly spawning in bombs
         fbomb = new bomb();
         int x = (int)(Math.random() * 581);
-        addObject(fbomb, 850, x);
+        addObject(fbomb, 800, x);
     }
     
     private void resetGame() {
