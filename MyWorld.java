@@ -12,7 +12,6 @@ public class MyWorld extends World
     private Ball gameBall;
     private paddleUser uPad;
     private paddleBot bPad;
-    private start startButton;
     private mpbutton multiButton;
     private spbutton singleButton;
     private trophy prize;
@@ -83,7 +82,6 @@ public class MyWorld extends World
         
         isRunning = true;
         Greenfoot.playSound("win.mp3");
-        removeObject(startButton); // Remove the start button/text
         Greenfoot.playSound("backtrack.mp3");
 
         // Initialize and add objects (moved from the constructor)
