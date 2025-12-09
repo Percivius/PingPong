@@ -15,14 +15,8 @@ public class trophy extends Actor
     public void act()
     {
         // Add your action code here.
-<<<<<<< HEAD:start.java
-        start actor=new start();
-        GreenfootImage startImage=getImage();
-        startImage.scale(450,300);
-=======
-        trophy actor=new trophy();
+        trophy actor = new trophy();
         GreenfootImage trophyImage=getImage();
         trophyImage.scale(450,300);
->>>>>>> 3c9984ebc9178ef05ac2662ea184e49cddc6df9c:trophy.java
     }
 }

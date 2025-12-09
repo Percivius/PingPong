@@ -19,16 +19,26 @@ public class paddleBot extends Actor
         GreenfootImage botPaddleImage = getImage();
         botPaddleImage.scale(20,100);
         
-        Ball Ball=(Ball) getWorld().getObjects(Ball.class).get(0);
-        int ballY=Ball.getY();
-        if(ballY>getY())
-        {
-            setLocation(getX(),getY()+7);
+        if (MyWorld.pressedSinglePlayer) {
+            Ball Ball= (Ball)getWorld().getObjects(Ball.class).get(0);
+            int ballY=Ball.getY();
+            if(ballY > getY())
+            {
+                setLocation(getX(), getY()+2);
+            }
+            
+            if(ballY<getY())
+            {
+                setLocation(getX(), getY()-2);
+            }
         }
-        
-        if(ballY<getY())
-        {
-            setLocation(getX(),getY()-7);
+        else if (MyWorld.pressedMultiPlayer) {
+            if (Greenfoot.isKeyDown("W")) {
+              setLocation(getX(), getY() + 10);
+            }
+            if (Greenfoot.isKeyDown("S")) {
+              setLocation(getX(), getY() - 10);
+            }
         }
     }
 }

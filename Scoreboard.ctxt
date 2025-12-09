@@ -1,11 +1,5 @@
 #BlueJ class context
 comment0.target=Scoreboard
 comment1.params=
-comment1.target=void\ playerScored()
-comment2.params=
-comment2.target=void\ botScored()
-comment3.params=
-comment3.target=int\ gameOver()
-comment4.params=
-comment4.target=int\ level()
-numComments=5
+comment1.target=int\ level()
+numComments=2

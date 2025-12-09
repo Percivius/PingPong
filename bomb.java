@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.Random;
 
 /**
  * Write a description of class bomb here.
@@ -6,28 +7,40 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class bomb extends Actor
-{
-    /**
-     * Act - do whatever the bomb wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    private int speed = -5; 
-    private boolean imageScaled = false;
+import greenfoot.*;  
+import java.util.Random;
 
-    public void act()
-    {
-        if (!imageScaled)
-        {
-            GreenfootImage bombImage = getImage();
-            bombImage.scale(90, 100);
-            setImage(bombImage);
-            imageScaled = true;
-        }
+public class bomb extends Actor {
+    public static int speed = -5;  
+    private boolean touching = false;  
 
-        setLocation(getX()-5, getY());
-        if (isTouching(paddleUser.class)) {
-            setImage("kaboom.png");
-        }
+    public void act() {
+        GreenfootImage bombImage = getImage();
+        bombImage.scale(90, 100);
+        setImage(bombImage);
+        
+        // Move bomb left
+        setLocation(getX() + speed, getY());
+
+        // Update touching state each frame
+        touching = isTouching(paddleUser.class);
     }
+
+    public int getYValue() {
+        Random randNum = new Random();
+        return randNum.nextInt(429);
+    }
+
+    public boolean isTouchingUser() {
+        return touching;
+    }
+    
+    public int getXPos() {
+        return getX();
+    }
+    
+    public void setSpeed(int newSpeed) {
+        speed = newSpeed;
+    }
+
 }
