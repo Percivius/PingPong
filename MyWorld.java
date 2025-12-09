@@ -62,6 +62,9 @@ public class MyWorld extends World
         addObject(multiButton, 673, 290);
         singleButton = new spbutton();
         addObject(singleButton, 222, 290);
+        showText("Welcome to Cog Pong! You are an aspiring ping pong champion, and have to face off against", 450, 125);
+        showText("a powerful opponent to claim the title. It is a first-to-21 point game, and it gets harder every 7!", 450, 145);
+        showText("Good luck and have fun!", 450, 165);
         prize = new trophy();
         
     }
@@ -79,6 +82,9 @@ public class MyWorld extends World
     private void startGame() {
         playerScore = 0;
         botScore = 0;
+        showText(" ", 450, 125);
+        showText(" ", 450, 145);
+        showText(" ", 450, 165);
         
         isRunning = true;
         Greenfoot.playSound("win.mp3");
